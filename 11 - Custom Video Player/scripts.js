@@ -7,6 +7,8 @@ const toggle = player.querySelector(".toggle");
 const skipButtons = player.querySelectorAll("[data-skip]");
 const ranges = player.querySelectorAll(".player__slider");
 
+const fullScreen = player.querySelector(".player__fullscreen");
+
 function togglePlay() {
     if (video.paused) {
         video.play();
@@ -31,6 +33,12 @@ function handleRangeUpdate() {
     console.log(this.name);
     console.log(this.value);
 }
+
+function openInFullscreen() {
+    video.requestFullscreen();
+}
+
+fullScreen.addEventListener('click', openInFullscreen);
 
 function handleProgress() {
     const percent = (video.currentTime / video.duration) * 100;
